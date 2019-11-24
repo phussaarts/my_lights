@@ -1,0 +1,18 @@
+{% extends 'my_lights/my_lights_base.html' %}
+{% block body_block %}
+
+    <h1>Log in</h1>
+    <form action="{% url 'my_lights:login' %}" method="post">
+    {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="Enter Username">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password">
+        <br>
+        <input type="submit" name="" value="Login">
+    </form>
+    <br>
+    <p>Or register <a href="{% url "my_lights:register" %}">here</a></p>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'my_lights/my_lights_base.html' %}
+
+{% block body_block %}
+
+    {% if user.userprofile.user_device.refresh_token and user.userprofile.user_device.access_token %}
+        {% load staticfiles %}
+        <div class="jumbotron">
+            <h1 class="display-4">Lights go here</h1>
+
+
+        </div>
+
+
+
+    {% else %}
+
+        <div class="jumbotron">
+            <h1 class="display-4">My Lights</h1>
+            <p class="lead">It appears you have not yet authenticated your device. Click the button below for authentication.</p>
+            <hr class="my-4">
+            <p>You will be redirected to the Philips Hue website. Follow the instructions there and log in.</p>
+            <a class="btn btn-primary btn-lg" href="{% url 'my_lights:auth' %}" role="button">Authenticate</a>
+        </div>
+
+
+    {% endif %}
+{% endblock %}

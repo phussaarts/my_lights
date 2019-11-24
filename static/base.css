@@ -1,0 +1,104 @@
+a.navbar-brand {
+    font-family: 'Solway', serif;
+}
+
+a.nav-link {
+    font-family: 'Monda', sans-serif;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/*logo animation*/
+i.hue {
+    -webkit-animation: color-change 4s infinite;
+    -moz-animation: color-change 4s infinite;
+    -o-animation: color-change 4s infinite;
+    -ms-animation: color-change 4s infinite;
+    animation: color-change 4s infinite;
+}
+
+@-webkit-keyframes color-change {
+    0% {
+        color: grey;
+    }
+    33% {
+        color: gold;
+    }
+    66% {
+        color: gold;
+    }
+    100% {
+        color: grey;
+    }
+}
+
+@-moz-keyframes color-change {
+    0% {
+        color: grey;
+    }
+    33% {
+        color: gold;
+    }
+    66% {
+        color: gold;
+    }
+    100% {
+        color: grey;
+    }
+}
+
+@-ms-keyframes color-change {
+    0% {
+        color: grey;
+    }
+    33% {
+        color: gold;
+    }
+    66% {
+        color: gold;
+    }
+    100% {
+        color: grey;
+    }
+}
+
+@-o-keyframes color-change {
+    0% {
+        color: grey;
+    }
+    33% {
+        color: gold;
+    }
+    66% {
+        color: gold;
+    }
+    100% {
+        color: grey;
+    }
+}
+
+@keyframes color-change {
+    0% {
+        color: grey;
+    }
+    33% {
+        color: gold;
+    }
+    66% {
+        color: gold;
+    }
+    100% {
+        color: grey;
+    }
+}
+
+/*end logo animation*/
+
+a.dropdown-toggle {
+    text-transform: capitalize;
+}
