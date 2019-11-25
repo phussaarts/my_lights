@@ -106,10 +106,8 @@ class AuthView(LoginRequiredMixin, View):
     login_url = '/login/'
     redirect_field_name = ''
     model = models.HueAuth
-    state = generate_identifier()
-    print(state)
     params = {
-        'state': state,
+        'state': '',
         'response_type': 'code',
 
     }
@@ -120,8 +118,12 @@ class AuthView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         device = request.user.userprofile.user_device
+        state = generate_identifier()
+        print(request.user.username)
+        print(device)
         self.params['deviceid'] = device.device_id
-        device.identifier = self.state
+        self.params['state'] = state
+        device.identifier = state
         device.save()
         query = urlencode(self.params)
         url = "{}?{}".format(self.url, query)
@@ -210,14 +212,16 @@ class LinkView(LoginRequiredMixin, View):
         # return HttpResponse('Successfully Linked!')
 
         response = json.loads(r.content)
-        print(response)
         response = response[0]
+        print(response)
         if 'success' in response:
             if 'username' in response['success']:
                 username = response['success']['username']
+                print(username)
                 device = request.user.userprofile.user_device
                 device.user_name_device = username
                 device.save()
+                print(device.user_name_device)
 
                 return HttpResponse('Device successfully linked!')
 
