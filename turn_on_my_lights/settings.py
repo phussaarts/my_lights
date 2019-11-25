@@ -11,6 +11,16 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import sys
+from django.core.wsgi import get_wsgi_application
+
+path = '/home/myusername/mysite'
+if path not in sys.path:
+    sys.path.insert(0, path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+application = get_wsgi_application()
+
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
